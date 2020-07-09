@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
-import postsReducer from './postsReducer';
-import usersReducer from './usersReducer';
 import charactersReducer from './charactersReducer';
 import _ from 'lodash';
 
@@ -34,15 +32,6 @@ const filters = (state = { filters: {} }, action) => {
   }
 };
 
-const pagination = (state = { page: 1 }, action) => {
-  switch (action.type) {
-    case "SET_PAGE":
-      return Object.assign({}, state, { page: action.page });
-    default:
-      return state;
-  }
-};
-
 const content = (state = { entries: [] }, action) => {
   switch (action.type) {
     case "SET_CONTENT":
@@ -60,11 +49,8 @@ const content = (state = { entries: [] }, action) => {
 
 
 const reducers = combineReducers({
-  posts: postsReducer,
-  users: usersReducer,
   characters: charactersReducer,
   filters,
-  pagination,
   content
 });
 export default reducers;

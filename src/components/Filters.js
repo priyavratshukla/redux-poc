@@ -12,6 +12,39 @@ const Filters = class Filters extends React.Component {
       }
       
       this.props.resetPage();
+
+    }
+    filterResults(filters) {
+      let resArr = document.querySelectorAll(".services li");
+      let hiddenArr = [];
+      if (!resArr || resArr.length <= 0) {
+        return;
+      }
+      for (let i = 0; i < resArr.length; i++) {
+        let el = resArr[i];
+        if (filters.filterParam.length > 0) {
+          let isHidden = true;
+          for (let j = 0; j < filters.filterParam.length; j++) {
+            let filter = filters.filterParam[j];
+            if (el.children[0].textContent.toLocaleLowerCase().match(filter)) {
+              isHidden = false;
+              break;
+            }
+          }
+          if (isHidden) {
+            hiddenArr.push(el);
+          }
+        }
+      }
+      for (let i = 0; i < resArr.length; i++) {
+        resArr[i].style.display = "inline-block";
+      }
+      if (hiddenArr.length <= 0) {
+        return;
+      }
+      for (let i = 0; i < hiddenArr.length; i++) {
+        hiddenArr[i].style.display = "none";
+      }
     }
   
     render() {
