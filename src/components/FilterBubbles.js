@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import { setPage, removeFilter, clearFilters  } from '../actions';
+import { setPage, removeFilter, clearFilters, APP_CONSTANTS  } from '../actions';
 
 const FilterBubbles = class FilterBubbles extends React.Component {
     render() {
@@ -16,10 +16,13 @@ const FilterBubbles = class FilterBubbles extends React.Component {
             });
           });
         }
+        localStorage.setItem('filterLabels', JSON.stringify(filters));
         return filters;
       }, []);
       return (
-        <ul className="filter-bubbles">
+        <React.Fragment>
+          {allFilters.length !== 0 ? <h2>{APP_CONSTANTS.selectedFilters}</h2> : ''}
+          <ul className="filter-bubbles">
           {allFilters.map(filter => {
             const filterId = _.snakeCase(`filter-${filter.name}-${filter.value}`);
             return (
@@ -44,6 +47,8 @@ const FilterBubbles = class FilterBubbles extends React.Component {
             </li>
           )}
         </ul>
+        </React.Fragment>
+        
       );
     }
   };

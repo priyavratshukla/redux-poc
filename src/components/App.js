@@ -9,16 +9,21 @@ const AppContainer = class Body extends React.Component {
       let retrivedObj = JSON.parse(apiData);
       console.log('apidata in body===', retrivedObj);
       return (
-        <section className="body">
-          <header className="body__header">
-            <h2 className="body__header__title">Selected Filters</h2>
-          </header>
-          <main className="app">
-            <FiltersContainer />
-            <FilterBubblesContainer />
-            <DisplayCharacters />
-          </main>
-        </section>
+        <React.Fragment>
+          <div className="ui celled grid">
+            <div className="row">
+              <div className="three wide column stackable grid container">
+                <div className="column">
+                  <div className="ui segment"><FiltersContainer /></div>
+                </div>
+              </div>
+              <div id="result-wrapper" className="thirteen wide column stackable grid container">
+                <FilterBubblesContainer />
+                <DisplayCharacters />
+              </div>
+            </div>
+          </div>
+        </React.Fragment>
       );
     }
   };

@@ -1,11 +1,3 @@
-.filters{
-  width: 20%;
-  float: left;
-}
-.body{
-  width: 80%;
-  float: left;
-}
 .filters__filter ul li, .filter-bubbles li{list-style-type: none;}
 .filter-bubbles{
   padding: 0;
@@ -18,6 +10,20 @@
     border-radius: 5px;
     color: #fff;
     margin: 0 5px 0 0;
+}
+.filters__filter{
+  border: #ccc solid 1px;
+  display: inline-block;
+  margin: 10px 0 10px 10px;
+  padding: 10px;
+  width: 90%;
+}
+.filters__filter ul{
+  margin: 0;
+  padding: 0;
+}
+.filters__filter ul li input[type="checkbox"]{
+  margin-right: 5px;
 }
 
 .pagination{
@@ -83,6 +89,7 @@ span.filterSpan{
   border-radius: 7px;
   margin-right: 10px;
   cursor: pointer;
+  height: 30px;
 }
 
 .clear, .clear::after, .group, .group::after {
@@ -115,11 +122,15 @@ span.filterSpan{
     color: #FFF;
     background-color: inherit;
 }
+.overlay img{
+  border-radius: 10px;
+}
 .services article {
     display: block;
 }
+select.ui.dropdown{width: 100%;}
 .tile-heading{
-  margin-top: -80px;
+  margin-top: -65px;
     background: #000;
     padding: 10px;
     z-index: 1;
@@ -136,8 +147,8 @@ span.filterSpan{
   font-size: 10px;
 }
 .tile-info p{
-  padding: 0 0 10px;;
-    margin: 0 0 10px;
+  padding: 5px 0 10px;
+    margin: 10px 0 10px;
     border-bottom: solid 1px dimgray;;
 }
 .tile-info p:nth-last-child(1){
@@ -149,6 +160,9 @@ span.filterSpan{
 .tile-info p span:nth-child(2){
   float: right;
   color: #f59215;
+}
+.btmspace-30 {
+  margin-bottom: 30px;
 }
 .overlay {
     position: relative;
@@ -202,10 +216,6 @@ span.filterSpan{
   padding: 10px;
   color: #fff;
   margin-top: -14px;
-}
-#myList{
-  float: right;
-    margin: 35px 10px 0;
 }
 .search-form{
   margin: 0 0 10px 0;

@@ -41,13 +41,6 @@ const content = (state = { entries: [] }, action) => {
   }
 };
 
-// const reducers = combineReducers({
-//   filters,
-//   pagination,
-//   content
-// });
-
-
 const reducers = combineReducers({
   characters: charactersReducer,
   filters,

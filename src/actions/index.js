@@ -1,8 +1,17 @@
 import fetchCharactersApi from '../apis/fetchCharacters';
-
 let apiData = localStorage.getItem("fetchedcharacters");
 export const retrivedObj = JSON.parse(apiData);
 console.log('from localstorage===', retrivedObj);
+
+export const APP_CONSTANTS = {
+  filters: "Filters",
+  selectedFilters: "Selected filters",
+  searchLabel: "Search by name:",
+  sortLabel: "Sort by:",
+  ascending: "Ascending",
+  descending: "Descending",
+  enterName: "Enter the name"
+}
 
 export const entryAttr = {
   gender: ['Male', 'Female'],
@@ -52,5 +61,12 @@ export const setContent = entries => {
     entries
   };
 };
+
+export const filterResults = result => {
+  return {
+    type: "FILTER_RESULTS",
+    result
+  }
+}
 
 
